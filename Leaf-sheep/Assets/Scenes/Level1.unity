@@ -242,6 +242,7 @@ GameObject:
   - 33: {fileID: 1922671954}
   - 135: {fileID: 1922671953}
   - 23: {fileID: 1922671952}
+  - 114: {fileID: 1922671956}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -259,7 +260,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 56217dcd2bc05e4419687b0e17551432, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -304,3 +305,14 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
+--- !u!114 &1922671956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1922671951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fbfe8421f8fcd14f8a986c4c489a818, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
