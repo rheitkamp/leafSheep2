@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
-public class algaeLifespan : MonoBehaviour {
+public class algaeLifespan2 : MonoBehaviour {
+
+	List<GameObject> algaes;
 
 	Object babyAlgaePrefab;
 	Object mediAlgaePrefab;
@@ -18,6 +21,8 @@ public class algaeLifespan : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		algaes = new List<GameObject>();
+
 		babyAlgaePrefab = Resources.Load("prefabs/babyAlgaePrefab");
 		mediAlgaePrefab = Resources.Load("prefabs/mediAlgaePrefab");
 		flowerAlgaePrefab = Resources.Load("prefabs/flowerAlgaePrefab");
@@ -25,6 +30,7 @@ public class algaeLifespan : MonoBehaviour {
 	
 		babyAlgaeIRL = (GameObject)Instantiate(babyAlgaePrefab, transform.position, Quaternion.identity);
 		babyAlgaeIRL.transform.parent = gameObject.transform;
+		algaes.Add(babyAlgaeIRL);
 	}
 	
 	// Update is called once per frame
@@ -32,10 +38,14 @@ public class algaeLifespan : MonoBehaviour {
 		lifeTimer -= Time.deltaTime;
 		Debug.Log (lifeTimer);
 
+
+
+
 		if (lifeTimer < 8 && lifeTimer > 4 && mediAlgaeIRL == null) {
 			Destroy (babyAlgaeIRL);
 			mediAlgaeIRL = (GameObject)Instantiate(mediAlgaePrefab, transform.position, Quaternion.identity);
 			mediAlgaeIRL.transform.parent = gameObject.transform;
+
 		}
 
 		else if (lifeTimer < 4 && lifeTimer > 0 && flowerAlgaeIRL == null) {
@@ -60,13 +70,10 @@ public class algaeLifespan : MonoBehaviour {
 			if (eatingTimer > 2) {
 				lifeTimer += 4;
 				eatingTimer = 0;
-			
 			}
-
-
-
 		}
 
 		//Debug.Log (eatingTimer);
+
 	}
 }
