@@ -165,6 +165,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4fe3cefd5f724f86b35c5b624509546, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  babyAlgaePrefab: {fileID: 0}
+  mediAlgaePrefab: {fileID: 0}
+  flowerAlgaePrefab: {fileID: 0}
+  deadAlgaePrefab: {fileID: 0}
+  babyAlgaeIRL: {fileID: 0}
+  mediAlgaeIRL: {fileID: 0}
+  flowerAlgaeIRL: {fileID: 0}
+  deadAlgaeIRL: {fileID: 0}
+  lifeTimer: 10
+  eatingTimer: 0
 --- !u!1 &215511221
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,6 +317,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4fe3cefd5f724f86b35c5b624509546, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  babyAlgaePrefab: {fileID: 0}
+  mediAlgaePrefab: {fileID: 0}
+  flowerAlgaePrefab: {fileID: 0}
+  deadAlgaePrefab: {fileID: 0}
+  babyAlgaeIRL: {fileID: 0}
+  mediAlgaeIRL: {fileID: 0}
+  flowerAlgaeIRL: {fileID: 0}
+  deadAlgaeIRL: {fileID: 0}
+  lifeTimer: 10
+  eatingTimer: 0
 --- !u!4 &424624206
 Transform:
   m_ObjectHideFlags: 0
@@ -441,6 +461,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4fe3cefd5f724f86b35c5b624509546, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  babyAlgaePrefab: {fileID: 0}
+  mediAlgaePrefab: {fileID: 0}
+  flowerAlgaePrefab: {fileID: 0}
+  deadAlgaePrefab: {fileID: 0}
+  babyAlgaeIRL: {fileID: 0}
+  mediAlgaeIRL: {fileID: 0}
+  flowerAlgaeIRL: {fileID: 0}
+  deadAlgaeIRL: {fileID: 0}
+  lifeTimer: 10
+  eatingTimer: 0
 --- !u!1 &541609244
 GameObject:
   m_ObjectHideFlags: 0
@@ -521,6 +551,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4fe3cefd5f724f86b35c5b624509546, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  babyAlgaePrefab: {fileID: 0}
+  mediAlgaePrefab: {fileID: 0}
+  flowerAlgaePrefab: {fileID: 0}
+  deadAlgaePrefab: {fileID: 0}
+  babyAlgaeIRL: {fileID: 0}
+  mediAlgaeIRL: {fileID: 0}
+  flowerAlgaeIRL: {fileID: 0}
+  deadAlgaeIRL: {fileID: 0}
+  lifeTimer: 10
+  eatingTimer: 0
 --- !u!1001 &542713768
 Prefab:
   m_ObjectHideFlags: 0
@@ -643,6 +683,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4fe3cefd5f724f86b35c5b624509546, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  babyAlgaePrefab: {fileID: 0}
+  mediAlgaePrefab: {fileID: 0}
+  flowerAlgaePrefab: {fileID: 0}
+  deadAlgaePrefab: {fileID: 0}
+  babyAlgaeIRL: {fileID: 0}
+  mediAlgaeIRL: {fileID: 0}
+  flowerAlgaeIRL: {fileID: 0}
+  deadAlgaeIRL: {fileID: 0}
+  lifeTimer: 10
+  eatingTimer: 0
 --- !u!1001 &1348897676
 Prefab:
   m_ObjectHideFlags: 0
@@ -1026,6 +1076,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4fe3cefd5f724f86b35c5b624509546, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  babyAlgaePrefab: {fileID: 0}
+  mediAlgaePrefab: {fileID: 0}
+  flowerAlgaePrefab: {fileID: 0}
+  deadAlgaePrefab: {fileID: 0}
+  babyAlgaeIRL: {fileID: 0}
+  mediAlgaeIRL: {fileID: 0}
+  flowerAlgaeIRL: {fileID: 0}
+  deadAlgaeIRL: {fileID: 0}
+  lifeTimer: 10
+  eatingTimer: 0
 --- !u!1 &1922671951
 GameObject:
   m_ObjectHideFlags: 0
@@ -1200,6 +1260,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4fe3cefd5f724f86b35c5b624509546, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  babyAlgaePrefab: {fileID: 0}
+  mediAlgaePrefab: {fileID: 0}
+  flowerAlgaePrefab: {fileID: 0}
+  deadAlgaePrefab: {fileID: 0}
+  babyAlgaeIRL: {fileID: 0}
+  mediAlgaeIRL: {fileID: 0}
+  flowerAlgaeIRL: {fileID: 0}
+  deadAlgaeIRL: {fileID: 0}
+  lifeTimer: 10
+  eatingTimer: 0
 --- !u!1 &2146198059
 GameObject:
   m_ObjectHideFlags: 0
@@ -1230,6 +1300,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4fe3cefd5f724f86b35c5b624509546, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  babyAlgaePrefab: {fileID: 0}
+  mediAlgaePrefab: {fileID: 0}
+  flowerAlgaePrefab: {fileID: 0}
+  deadAlgaePrefab: {fileID: 0}
+  babyAlgaeIRL: {fileID: 0}
+  mediAlgaeIRL: {fileID: 0}
+  flowerAlgaeIRL: {fileID: 0}
+  deadAlgaeIRL: {fileID: 0}
+  lifeTimer: 10
+  eatingTimer: 0
 --- !u!4 &2146198061
 Transform:
   m_ObjectHideFlags: 0
