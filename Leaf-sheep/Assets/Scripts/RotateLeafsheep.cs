@@ -3,10 +3,10 @@ using System.Collections;
 
 public class RotateLeafsheep : MonoBehaviour {
 
-	public float rotationSpeed = 3f;
+	public float smooth = 1.0F;
 
-	Vector3 xComponent = new Vector3 (0,0,0);
-	Vector3 zComponent = new Vector3 (0,0,0);
+
+	Quaternion target = Quaternion.identity;
 
 	// Use this for initialization
 	void Start () {
@@ -16,24 +16,21 @@ public class RotateLeafsheep : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		// rotate leaf sheep toward opposite of direction of motion
-		
-		// if pressing arrow keys, set direction based on input
-		if (Input.GetAxis ("Vertical") > 0) {
-			xComponent = new Vector3(0,1,0);
-		} else if (Input.GetAxis ("Vertical") < 0) {
-			xComponent = new Vector3(0,-1,0);
-		}
 
+		//rotation is around y axis only
 		if (Input.GetAxis ("Horizontal") > 0) {
-			zComponent = new Vector3 (0,0,1);
+			target = Quaternion.Euler (0f, 180f, 0f);
 		} else if (Input.GetAxis ("Horizontal") < 0) {
-			zComponent = new Vector3 (0,0,-1);
+			target = Quaternion.Euler (0f, 0f, 0f);
 		}
 
-		Vector3 direction = xComponent + zComponent;
+		if (Input.GetAxis ("Vertical") > 0) {
+			target = Quaternion.Euler (0f, 90f, 0f);
+		} else if (Input.GetAxis ("Vertical") < 0) {
+			target = Quaternion.Euler (0f, 270f, 0f);
+		} 
 		
-		Quaternion lookRotation = Quaternion.LookRotation (direction);
+		transform.rotation = Quaternion.Slerp (transform.rotation, target, Time.deltaTime * smooth);
 
-		transform.rotation = Quaternion.Slerp (transform.rotation, lookRotation, Time.deltaTime * rotationSpeed);
 	}
 }
