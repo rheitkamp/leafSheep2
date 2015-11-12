@@ -95,7 +95,6 @@ GameObject:
   - 4: {fileID: 74553338}
   - 114: {fileID: 74553342}
   - 65: {fileID: 74553341}
-  - 54: {fileID: 74553340}
   - 114: {fileID: 74553339}
   m_Layer: 0
   m_Name: algae (2)
@@ -127,21 +126,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e405955aab6ca4c8ca72c943ecc6aa3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!54 &74553340
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 74553337}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 126
-  m_CollisionDetection: 0
 --- !u!65 &74553341
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -176,6 +160,7 @@ GameObject:
   - 33: {fileID: 215511224}
   - 136: {fileID: 215511223}
   - 23: {fileID: 215511222}
+  - 54: {fileID: 215511226}
   m_Layer: 0
   m_Name: LeafSheep
   m_TagString: Untagged
@@ -239,6 +224,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1345505956}
   m_RootOrder: 0
+--- !u!54 &215511226
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 215511221}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 62
+  m_CollisionDetection: 0
 --- !u!1 &424624201
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,7 +249,6 @@ GameObject:
   - 4: {fileID: 424624206}
   - 114: {fileID: 424624205}
   - 65: {fileID: 424624204}
-  - 54: {fileID: 424624203}
   - 114: {fileID: 424624202}
   m_Layer: 0
   m_Name: algae (3)
@@ -269,21 +268,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e405955aab6ca4c8ca72c943ecc6aa3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!54 &424624203
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 424624201}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 126
-  m_CollisionDetection: 0
 --- !u!65 &424624204
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -371,7 +355,6 @@ GameObject:
   - 4: {fileID: 509044885}
   - 114: {fileID: 509044889}
   - 65: {fileID: 509044888}
-  - 54: {fileID: 509044887}
   - 114: {fileID: 509044886}
   m_Layer: 0
   m_Name: algae (4)
@@ -403,21 +386,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e405955aab6ca4c8ca72c943ecc6aa3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!54 &509044887
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 509044884}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 126
-  m_CollisionDetection: 0
 --- !u!65 &509044888
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -451,7 +419,6 @@ GameObject:
   - 4: {fileID: 541609245}
   - 114: {fileID: 541609249}
   - 65: {fileID: 541609248}
-  - 54: {fileID: 541609247}
   - 114: {fileID: 541609246}
   m_Layer: 0
   m_Name: algae (1)
@@ -483,21 +450,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e405955aab6ca4c8ca72c943ecc6aa3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!54 &541609247
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 541609244}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 126
-  m_CollisionDetection: 0
 --- !u!65 &541609248
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -573,7 +525,6 @@ GameObject:
   - 4: {fileID: 624966576}
   - 114: {fileID: 624966580}
   - 65: {fileID: 624966579}
-  - 54: {fileID: 624966578}
   - 114: {fileID: 624966577}
   m_Layer: 0
   m_Name: algae (5)
@@ -605,21 +556,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e405955aab6ca4c8ca72c943ecc6aa3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!54 &624966578
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 624966575}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 126
-  m_CollisionDetection: 0
 --- !u!65 &624966579
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -825,6 +761,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 5470108, guid: b788ca2ada51749e59700b0fe5df82ac, type: 2}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b788ca2ada51749e59700b0fe5df82ac, type: 2}
   m_IsPrefabParent: 0
@@ -997,7 +937,6 @@ GameObject:
   - 4: {fileID: 1734029126}
   - 114: {fileID: 1734029130}
   - 65: {fileID: 1734029129}
-  - 54: {fileID: 1734029128}
   - 114: {fileID: 1734029127}
   m_Layer: 0
   m_Name: algae (6)
@@ -1029,21 +968,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e405955aab6ca4c8ca72c943ecc6aa3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!54 &1734029128
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1734029125}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 126
-  m_CollisionDetection: 0
 --- !u!65 &1734029129
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1098,6 +1022,7 @@ GameObject:
   - 135: {fileID: 1922671953}
   - 23: {fileID: 1922671952}
   - 114: {fileID: 1922671956}
+  - 54: {fileID: 1922671957}
   m_Layer: 0
   m_Name: Planet
   m_TagString: Untagged
@@ -1180,6 +1105,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 3
+--- !u!54 &1922671957
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1922671951}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2105090682
 GameObject:
   m_ObjectHideFlags: 0
@@ -1190,7 +1130,6 @@ GameObject:
   - 4: {fileID: 2105090683}
   - 114: {fileID: 2105090687}
   - 65: {fileID: 2105090686}
-  - 54: {fileID: 2105090685}
   - 114: {fileID: 2105090684}
   m_Layer: 0
   m_Name: algae (7)
@@ -1222,21 +1161,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e405955aab6ca4c8ca72c943ecc6aa3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!54 &2105090685
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2105090682}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 126
-  m_CollisionDetection: 0
 --- !u!65 &2105090686
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1269,7 +1193,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 2146198061}
   - 65: {fileID: 2146198062}
-  - 54: {fileID: 2146198063}
   - 114: {fileID: 2146198064}
   m_Layer: 0
   m_Name: algae
@@ -1302,21 +1225,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: .75, y: .75, z: .75}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &2146198063
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2146198059}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 126
-  m_CollisionDetection: 0
 --- !u!114 &2146198064
 MonoBehaviour:
   m_ObjectHideFlags: 0
