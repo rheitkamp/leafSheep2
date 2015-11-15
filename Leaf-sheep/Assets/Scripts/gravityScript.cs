@@ -9,7 +9,7 @@ public class gravityScript : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 
 		Vector3 gravityOrigin = new Vector3 (0f, 0f, 0f);
 
