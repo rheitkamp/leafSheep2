@@ -24,7 +24,7 @@ public class RotatePlanet : MonoBehaviour {
 			float rollLeftOrRight = -Input.GetAxis ("Horizontal") * rotationSpeed;
 
         //in order for collisions to be detected correctly, movement has to be dependent on force/torque added, not position change
-        rb.AddTorque(rollLeftOrRight, rollForwardsOrBackwards, 0f);
+		rb.AddRelativeTorque(rollLeftOrRight, 0f, rollForwardsOrBackwards);
         /*
         transform.Rotate (rollLeftOrRight, 0, rollForwardsOrBackwards, Space.World);
         */
