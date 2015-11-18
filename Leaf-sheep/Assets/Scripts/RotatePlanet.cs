@@ -3,10 +3,15 @@ using System.Collections;
 
 public class RotatePlanet : MonoBehaviour {
 
-	public float rotationSpeed = 3f; 
+	Rigidbody worldRB;
+	public float rotationSpeed = 15f; 
+
+	void Start (){
+		worldRB = GetComponent<Rigidbody>();
+	}
 
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		// rotate leaf sheep toward opposite of direction of motion
 		// when leaf sheep is facing direction of motion, move the planet beneath
 
@@ -14,8 +19,11 @@ public class RotatePlanet : MonoBehaviour {
 			float rollForwardsOrBackwards = -Input.GetAxis ("Vertical") * rotationSpeed;
 			// if pressing left or right arrow keys, rotate on z axis
 			float rollLeftOrRight = -Input.GetAxis ("Horizontal") * rotationSpeed;
+			
+			worldRB.AddTorque(transform.forward * rollForwardsOrBackwards);
+			worldRB.AddTorque (transform.right * rollLeftOrRight);
 
-			transform.Rotate (rollLeftOrRight, 0, rollForwardsOrBackwards, Space.World);
+			//transform.Rotate (rollLeftOrRight, 0, rollForwardsOrBackwards, Space.World);
 
 	}
 }

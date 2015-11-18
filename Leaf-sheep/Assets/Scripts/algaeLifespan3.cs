@@ -17,9 +17,10 @@ public class algaeLifespan3 : MonoBehaviour {
 
 	Vector3 planetCenter = new Vector3(0,0,0);
 
+
 	// Use this for initialization
 	void Start () {
-		 lifeTimer = Random.Range(7.0f, 12.0f);
+		lifeTimer = Random.Range(7.0f, 12.0f);
 
 		babyAlgaePrefab = Resources.Load("prefabs/babyAlgaePrefab");
 		mediAlgaePrefab = Resources.Load("prefabs/mediAlgaePrefab");
@@ -34,9 +35,9 @@ public class algaeLifespan3 : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (lifeTimer < 12.01) {
+		if (lifeTimer < 12.01 && algaeStatus != "dead") {
 			lifeTimer -= Time.deltaTime;
-			Debug.Log (lifeTimer);
+			//Debug.Log (lifeTimer);
 		}
 
 		if (lifeTimer > 12) {
@@ -69,7 +70,7 @@ public class algaeLifespan3 : MonoBehaviour {
 	void OnTriggerStay(Collider other) {
 
 		if (other.gameObject.name == "LeafSheep") {
-			Debug.Log ("Still colliding with trigger object");
+			Debug.Log ("Still colliding with leaf sheep");
 			if (algaeStatus != "dead") {
 				eatingTimer += Time.deltaTime;
 				if (eatingTimer > 1) {
