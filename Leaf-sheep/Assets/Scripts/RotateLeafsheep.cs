@@ -32,6 +32,6 @@ public class RotateLeafsheep : MonoBehaviour {
 		
 		transform.rotation = Quaternion.Slerp (transform.rotation, target, Time.deltaTime * smooth);
 
-		Debug.Log(leafster.GetComponent<Rigidbody>().IsSleeping());
+		//Debug.Log(leafster.GetComponent<Rigidbody>().IsSleeping());
 	}
 }

@@ -96,7 +96,6 @@ GameObject:
   - 33: {fileID: 215511224}
   - 136: {fileID: 215511223}
   - 23: {fileID: 215511222}
-  - 54: {fileID: 215511226}
   m_Layer: 0
   m_Name: LeafSheep
   m_TagString: Untagged
@@ -160,21 +159,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1345505956}
   m_RootOrder: 0
---- !u!54 &215511226
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 215511221}
-  serializedVersion: 2
-  m_Mass: 10
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 62
-  m_CollisionDetection: 0
 --- !u!1 &263405605
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,6 +168,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 263405606}
   - 114: {fileID: 263405607}
+  - 65: {fileID: 263405608}
+  - 54: {fileID: 263405609}
   m_Layer: 0
   m_Name: newAlgae
   m_TagString: Untagged
@@ -214,6 +200,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e405955aab6ca4c8ca72c943ecc6aa3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &263405608
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 263405605}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &263405609
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 263405605}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 14
+  m_CollisionDetection: 0
 --- !u!1001 &441888365
 Prefab:
   m_ObjectHideFlags: 0
@@ -479,7 +492,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 442020, guid: b788ca2ada51749e59700b0fe5df82ac, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b788ca2ada51749e59700b0fe5df82ac, type: 2}
@@ -556,7 +569,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 8
 --- !u!1 &1684406086
 GameObject:
   m_ObjectHideFlags: 0
