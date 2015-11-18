@@ -22,7 +22,7 @@ public class algaeLifespan3 : MonoBehaviour {
 	void Start () {
 		lifeTimer = Random.Range(7.0f, 12.0f);
 
-		babyAlgaePrefab = Resources.Load("prefabs/babyAlgaePrefab");
+		babyAlgaePrefab = Resources.Load("prefabs/babyAlgaeBlendPre");
 		mediAlgaePrefab = Resources.Load("prefabs/mediAlgaePrefab");
 		flowerAlgaePrefab = Resources.Load("prefabs/flowerAlgaePrefab");
 		deadAlgaePrefab = Resources.Load("prefabs/deadAlgaePrefab");
@@ -64,6 +64,8 @@ public class algaeLifespan3 : MonoBehaviour {
 			algaeGothamDeserves.transform.parent = gameObject.transform;
 			algaeStatus = "dead";
 			Debug.Log ("It died bc you are neglectful");
+
+
 		}
 	}
 
