@@ -96,6 +96,7 @@ GameObject:
   - 33: {fileID: 215511224}
   - 136: {fileID: 215511223}
   - 23: {fileID: 215511222}
+  - 54: {fileID: 215511226}
   m_Layer: 0
   m_Name: LeafSheep
   m_TagString: Untagged
@@ -159,6 +160,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1345505956}
   m_RootOrder: 0
+--- !u!54 &215511226
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 215511221}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &263405605
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,7 +200,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 263405605}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.0489999987, y: .51910001, z: -.220599994}
+  m_LocalPosition: {x: -.0489999987, y: .492000014, z: -.220599994}
   m_LocalScale: {x: .100000001, y: .100000001, z: .100000001}
   m_Children: []
   m_Father: {fileID: 1922671955}
@@ -743,6 +759,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fbfe8421f8fcd14f8a986c4c489a818, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eulerAngleVelocity: {x: 0, y: 0, z: 0}
   rotationSpeed: 3
 --- !u!54 &1922671957
 Rigidbody:
@@ -757,5 +774,5 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 46
+  m_Constraints: 0
   m_CollisionDetection: 0
