@@ -11,8 +11,7 @@ GameObject:
   - 33: {fileID: 3340446}
   - 65: {fileID: 6589512}
   - 23: {fileID: 2303822}
-  - 54: {fileID: 5470108}
-  - 114: {fileID: 11488104}
+  - 54: {fileID: 5445822}
   m_Layer: 0
   m_Name: deadAlgaePrefab
   m_TagString: Untagged
@@ -27,7 +26,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 181740}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: .375, z: -24.5}
+  m_LocalPosition: {x: -2.40185738, y: .375, z: 4.16068888}
   m_LocalScale: {x: 1, y: .75, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -63,20 +62,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 181740}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &5470108
+--- !u!54 &5445822
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 181740}
   serializedVersion: 2
-  m_Mass: 1000
+  m_Mass: 1
   m_Drag: 0
   m_AngularDrag: .0500000007
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!65 &6589512
 BoxCollider:
@@ -90,17 +89,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &11488104
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 181740}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d021d47d54e2ad45b8d02b22dc15392, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

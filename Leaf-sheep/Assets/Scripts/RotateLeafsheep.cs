@@ -3,8 +3,8 @@ using System.Collections;
 
 public class RotateLeafsheep : MonoBehaviour {
 
-	public float smooth = 1.0F;
-
+	public float smooth = 2.0F;
+	public GameObject leafster;
 
 	Quaternion target = Quaternion.identity;
 
@@ -32,5 +32,6 @@ public class RotateLeafsheep : MonoBehaviour {
 		
 		transform.rotation = Quaternion.Slerp (transform.rotation, target, Time.deltaTime * smooth);
 
+		//Debug.Log(leafster.GetComponent<Rigidbody>().IsSleeping());
 	}
 }

@@ -9,6 +9,7 @@ public class algaeLifespan3 : MonoBehaviour {
 	Object deadAlgaePrefab;
 
 	GameObject algaeGothamDeserves;
+	GameObject DEADalgaeGothamDeserves;
 
 	float lifeTimer;
 	float eatingTimer = 0f;
@@ -17,11 +18,13 @@ public class algaeLifespan3 : MonoBehaviour {
 
 	Vector3 planetCenter = new Vector3(0,0,0);
 
+	Vector3 currentPos;
+	
 	// Use this for initialization
 	void Start () {
-		 lifeTimer = Random.Range(7.0f, 12.0f);
+		lifeTimer = Random.Range(7.0f, 12.0f);
 
-		babyAlgaePrefab = Resources.Load("prefabs/babyAlgaePrefab");
+		babyAlgaePrefab = Resources.Load("prefabs/babyAlgaeBlendPre");
 		mediAlgaePrefab = Resources.Load("prefabs/mediAlgaePrefab");
 		flowerAlgaePrefab = Resources.Load("prefabs/flowerAlgaePrefab");
 		deadAlgaePrefab = Resources.Load("prefabs/deadAlgaePrefab");
@@ -29,14 +32,17 @@ public class algaeLifespan3 : MonoBehaviour {
 		algaeGothamDeserves = (GameObject)Instantiate(babyAlgaePrefab, transform.position, Quaternion.LookRotation(transform.position - planetCenter));
 		algaeGothamDeserves.transform.parent = gameObject.transform;
 		algaeStatus = "baby";
+
+		currentPos = gameObject.transform.position;
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-		if (lifeTimer < 12.01) {
+		if (lifeTimer < 12.01 && algaeStatus != "dead") {
 			lifeTimer -= Time.deltaTime;
-			Debug.Log (lifeTimer);
+			//Debug.Log (lifeTimer);
 		}
 
 		if (lifeTimer > 12) {
@@ -59,17 +65,40 @@ public class algaeLifespan3 : MonoBehaviour {
 			algaeStatus = "flower";
 		} else if (lifeTimer < 0 && algaeStatus != "dead") {
 			Destroy (algaeGothamDeserves);
-			algaeGothamDeserves = (GameObject)Instantiate(deadAlgaePrefab, transform.position, Quaternion.LookRotation(transform.position - planetCenter));
-			algaeGothamDeserves.transform.parent = gameObject.transform;
+			DEADalgaeGothamDeserves = (GameObject)Instantiate(deadAlgaePrefab, transform.position, Quaternion.LookRotation(transform.position - planetCenter));
+			DEADalgaeGothamDeserves.transform.parent = gameObject.transform;
 			algaeStatus = "dead";
 			Debug.Log ("It died bc you are neglectful");
 		}
+
+		if (algaeStatus == "dead") {
+
+			/* tell it where to be...didn't work
+			DEADalgaeGothamDeserves.transform.position = currentPos;
+			*/
+			
+			/*
+			 * set translation to 0...didn't work
+			Vector3 noYouMayNot = new Vector3 (0,0,0);
+			DEADalgaeGothamDeserves.transform.Translate(noYouMayNot, Space.Self);
+			 */
+			
+			/*
+			 * set velocit to zero...didn't work
+			 * 
+			Rigidbody algaeRB;
+			algaeRB = DEADalgaeGothamDeserves.GetComponent<Rigidbody>();
+			algaeRB.velocity = new Vector3(0,0,0);
+			Debug.Log (algaeRB.velocity);
+			*/
+		}
+
 	}
 
 	void OnTriggerStay(Collider other) {
 
 		if (other.gameObject.name == "LeafSheep") {
-			Debug.Log ("Still colliding with trigger object");
+			Debug.Log ("Still colliding with leaf sheep");
 			if (algaeStatus != "dead") {
 				eatingTimer += Time.deltaTime;
 				if (eatingTimer > 1) {
@@ -77,6 +106,7 @@ public class algaeLifespan3 : MonoBehaviour {
 					eatingTimer = 0;
 				}
 			}
+
 		}
 	}
 

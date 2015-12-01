@@ -9,8 +9,9 @@ public class gravityScript : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 
+		/*
 		Vector3 gravityOrigin = new Vector3 (0f, 0f, 0f);
 
 		Vector3 toGravityOriginFromObject = gravityOrigin - gameObject.transform.position;
@@ -20,6 +21,6 @@ public class gravityScript : MonoBehaviour {
 		toGravityOriginFromObject *= accelerationDueToGravity * gameObject.GetComponent<Rigidbody>().mass * Time.deltaTime;
 
 		gameObject.GetComponent<Rigidbody>().AddForce (toGravityOriginFromObject, ForceMode.Acceleration);
-
+		*/
 	}
 }
