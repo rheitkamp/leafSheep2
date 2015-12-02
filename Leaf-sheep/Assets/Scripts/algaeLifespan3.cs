@@ -16,7 +16,7 @@ public class algaeLifespan3 : MonoBehaviour {
 
 	string algaeStatus = "none";
 
-	Vector3 planetCenter = new Vector3(0,0,0);
+	//Vector3 planetCenter = new Vector3(0,0,0);
 
 	Vector3 currentPos;
 	
@@ -24,16 +24,16 @@ public class algaeLifespan3 : MonoBehaviour {
 	void Start () {
 		lifeTimer = Random.Range(7.0f, 12.0f);
 
-		babyAlgaePrefab = Resources.Load("prefabs/babyAlgaeBlendPre");
-		mediAlgaePrefab = Resources.Load("prefabs/mediAlgaePrefab");
-		flowerAlgaePrefab = Resources.Load("prefabs/flowerAlgaePrefab");
+		babyAlgaePrefab = Resources.Load("prefabs/babyAlgaeBlendPre1");
+		mediAlgaePrefab = Resources.Load("prefabs/mediAlgaeBlendPre4");
+		flowerAlgaePrefab = Resources.Load("prefabs/flowerAlgaeBlendPre");
 		deadAlgaePrefab = Resources.Load("prefabs/deadAlgaePrefab");
 	
-		algaeGothamDeserves = (GameObject)Instantiate(babyAlgaePrefab, transform.position, Quaternion.LookRotation(transform.position - planetCenter));
+		algaeGothamDeserves = (GameObject)Instantiate(babyAlgaePrefab, transform.position, Quaternion.LookRotation(transform.position));
 		algaeGothamDeserves.transform.parent = gameObject.transform;
 		algaeStatus = "baby";
 
-		currentPos = gameObject.transform.position;
+		//currentPos = gameObject.transform.position;
 
 	}
 	
@@ -50,22 +50,22 @@ public class algaeLifespan3 : MonoBehaviour {
 			Debug.Log ("It died bc you are bad news");
 		} else if (lifeTimer < 12 && lifeTimer > 8 && algaeStatus != "baby") {
 			Destroy (algaeGothamDeserves);
-			algaeGothamDeserves = (GameObject)Instantiate(babyAlgaePrefab, transform.position, Quaternion.LookRotation(transform.position - planetCenter));
+			algaeGothamDeserves = (GameObject)Instantiate(babyAlgaePrefab, transform.position, Quaternion.LookRotation(transform.position));
 			algaeGothamDeserves.transform.parent = gameObject.transform;
 			algaeStatus = "baby";
 		} else if (lifeTimer < 8 && lifeTimer > 4 && algaeStatus != "medi") {
 			Destroy (algaeGothamDeserves);
-			algaeGothamDeserves = (GameObject)Instantiate(mediAlgaePrefab, transform.position, Quaternion.LookRotation(transform.position - planetCenter));
+			algaeGothamDeserves = (GameObject)Instantiate(mediAlgaePrefab, transform.position, Quaternion.LookRotation(transform.position));
 			algaeGothamDeserves.transform.parent = gameObject.transform;
 			algaeStatus = "medi";
 		} else if (lifeTimer < 4 && lifeTimer > 0 && algaeStatus != "flower") {
 			Destroy (algaeGothamDeserves);
-			algaeGothamDeserves = (GameObject)Instantiate(flowerAlgaePrefab, transform.position, Quaternion.LookRotation(transform.position - planetCenter));
+			algaeGothamDeserves = (GameObject)Instantiate(flowerAlgaePrefab, transform.position, Quaternion.LookRotation(transform.position));
 			algaeGothamDeserves.transform.parent = gameObject.transform;
 			algaeStatus = "flower";
 		} else if (lifeTimer < 0 && algaeStatus != "dead") {
 			Destroy (algaeGothamDeserves);
-			DEADalgaeGothamDeserves = (GameObject)Instantiate(deadAlgaePrefab, transform.position, Quaternion.LookRotation(transform.position - planetCenter));
+			DEADalgaeGothamDeserves = (GameObject)Instantiate(deadAlgaePrefab, transform.position, Quaternion.LookRotation(transform.position));
 			DEADalgaeGothamDeserves.transform.parent = gameObject.transform;
 			algaeStatus = "dead";
 			Debug.Log ("It died bc you are neglectful");
