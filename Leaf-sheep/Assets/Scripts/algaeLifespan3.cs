@@ -11,6 +11,11 @@ public class algaeLifespan3 : MonoBehaviour {
 	GameObject algaeGothamDeserves;
 	GameObject DEADalgaeGothamDeserves;
 
+	GameObject progressBar;
+	GameObject progressBarBackground;
+	RectTransform progressBarWidth;
+	RectTransform progressBarMaxWidth;
+
 	float lifeTimer;
 	float eatingTimer = 0f;
 
@@ -22,6 +27,11 @@ public class algaeLifespan3 : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
+		progressBar = GameObject.Find ("ProgressBar");
+		progressBarBackground = GameObject.Find ("ProgressBarBackground");
+		progressBarWidth = progressBar.GetComponent<RectTransform>();
+		progressBarMaxWidth = progressBarBackground.GetComponent<RectTransform> ();
+
 		lifeTimer = Random.Range(7.0f, 12.0f);
 
 		babyAlgaePrefab = Resources.Load("prefabs/babyAlgaeBlendPre1");
@@ -99,6 +109,11 @@ public class algaeLifespan3 : MonoBehaviour {
 
 		if (other.gameObject.name == "LeafSheep") {
 			Debug.Log ("Still colliding with leaf sheep");
+
+			if (algaeStatus == "flower") {
+				EatFloweringAlgae();
+			}
+
 			if (algaeStatus != "dead") {
 				eatingTimer += Time.deltaTime;
 				if (eatingTimer > 1) {
@@ -108,6 +123,14 @@ public class algaeLifespan3 : MonoBehaviour {
 			}
 
 		}
+	}
+
+	void EatFloweringAlgae() {
+		if (progressBarWidth.localScale.x < progressBarMaxWidth.localScale.x) {
+			progressBarWidth.localScale += new Vector3 (0.01f, 0f, 0f);
+			Debug.Log ("Eating Flowers!");
+		}
+
 	}
 
 }
