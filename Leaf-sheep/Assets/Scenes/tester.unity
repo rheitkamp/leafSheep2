@@ -65,6 +65,7 @@ LightmapSettings:
     m_TextureCompression: 1
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
+    m_ReflectionCompression: 2
   m_LightmapSnapshot: {fileID: 0}
   m_RuntimeCPUUsage: 25
 --- !u!196 &4
@@ -84,9 +85,6 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
---- !u!127 &5
-LevelGameManager:
-  m_ObjectHideFlags: 0
 --- !u!1 &17393589
 GameObject:
   m_ObjectHideFlags: 0
@@ -116,6 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 1997211142, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_ForceModuleActive: 0
 --- !u!114 &17393591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,6 +126,13 @@ MonoBehaviour:
   m_Script: {fileID: 1077351063, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: .5
+  m_ForceModuleActive: 0
 --- !u!114 &17393592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,6 +144,9 @@ MonoBehaviour:
   m_Script: {fileID: -619905303, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 5
 --- !u!4 &17393593
 Transform:
   m_ObjectHideFlags: 0
@@ -149,7 +158,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 22
 --- !u!1 &46670514
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,11 +257,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 94229690}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 841387059}
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
@@ -479,7 +494,7 @@ Transform:
   m_LocalScale: {x: .200000003, y: .200000003, z: .200000003}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 23
 --- !u!1001 &390538622
 Prefab:
   m_ObjectHideFlags: 0
@@ -588,6 +603,76 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b788ca2ada51749e59700b0fe5df82ac, type: 2}
   m_IsPrefabParent: 0
+--- !u!1001 &573907341
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400022, guid: 4948710c02ed244ee9c51129a067fb6d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -.739000022
+      objectReference: {fileID: 0}
+    - target: {fileID: 400022, guid: 4948710c02ed244ee9c51129a067fb6d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: .674000025
+      objectReference: {fileID: 0}
+    - target: {fileID: 400022, guid: 4948710c02ed244ee9c51129a067fb6d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.18099999
+      objectReference: {fileID: 0}
+    - target: {fileID: 400022, guid: 4948710c02ed244ee9c51129a067fb6d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400022, guid: 4948710c02ed244ee9c51129a067fb6d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400022, guid: 4948710c02ed244ee9c51129a067fb6d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400022, guid: 4948710c02ed244ee9c51129a067fb6d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400022, guid: 4948710c02ed244ee9c51129a067fb6d, type: 3}
+      propertyPath: m_RootOrder
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 4948710c02ed244ee9c51129a067fb6d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -.740022421
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 4948710c02ed244ee9c51129a067fb6d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -.135831401
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 4948710c02ed244ee9c51129a067fb6d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -.157131508
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 4948710c02ed244ee9c51129a067fb6d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: .639707983
+      objectReference: {fileID: 0}
+    - target: {fileID: 400022, guid: 4948710c02ed244ee9c51129a067fb6d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: .150000006
+      objectReference: {fileID: 0}
+    - target: {fileID: 400022, guid: 4948710c02ed244ee9c51129a067fb6d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: .150000006
+      objectReference: {fileID: 0}
+    - target: {fileID: 400022, guid: 4948710c02ed244ee9c51129a067fb6d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: .150000006
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 4948710c02ed244ee9c51129a067fb6d, type: 3}
+  m_IsPrefabParent: 0
 --- !u!1001 &769773962
 Prefab:
   m_ObjectHideFlags: 0
@@ -659,7 +744,7 @@ RectTransform:
   m_Children:
   - {fileID: 94229693}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -676,6 +761,11 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!114 &884564821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -687,6 +777,16 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
 --- !u!223 &884564822
 Canvas:
   m_ObjectHideFlags: 0
@@ -903,7 +1003,7 @@ Transform:
   - {fileID: 989022633}
   - {fileID: 237687037}
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 24
 --- !u!1 &1291342256
 GameObject:
   m_ObjectHideFlags: 0
@@ -951,6 +1051,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: .45588237, g: .422361612, b: .422361612, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
@@ -1050,7 +1156,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
 --- !u!1 &1362098857
 GameObject:
   m_ObjectHideFlags: 0
@@ -1619,7 +1725,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
 --- !u!54 &2057035706
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1694,6 +1800,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: .823529422, g: .169550195, b: .697243869, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0

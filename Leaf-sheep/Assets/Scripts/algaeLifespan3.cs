@@ -37,7 +37,7 @@ public class algaeLifespan3 : MonoBehaviour {
 		babyAlgaePrefab = Resources.Load("prefabs/babyAlgaeBlendPre1");
 		mediAlgaePrefab = Resources.Load("prefabs/mediAlgaeBlendPre4");
 		flowerAlgaePrefab = Resources.Load("prefabs/flowerAlgaeBlendPre");
-		deadAlgaePrefab = Resources.Load("prefabs/deadAlgaePrefab");
+		deadAlgaePrefab = Resources.Load("prefabs/deadAlgaeBlendPre");
 	
 		algaeGothamDeserves = (GameObject)Instantiate(babyAlgaePrefab, transform.position, Quaternion.LookRotation(transform.position));
 		algaeGothamDeserves.transform.parent = gameObject.transform;
