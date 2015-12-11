@@ -23,6 +23,8 @@ public class moveLeafsheep : MonoBehaviour {
 		// Store the player's input and make sure the audio for the engine is playing.
 		movementInputValue = Input.GetAxis (movementAxisName);
 		turnInputValue = Input.GetAxis (turnAxisName);
+
+
 	}
 
 	void FixedUpdate () {
@@ -30,6 +32,14 @@ public class moveLeafsheep : MonoBehaviour {
 		// Move and turn the tank.
 		Move ();
 		Turn ();
+
+		float youCantJump = gameObject.transform.position.y;
+		
+		if (youCantJump > .55f) {
+			youCantJump = .5f;
+		}
+		
+		Debug.Log (youCantJump);
 
 	}
 
@@ -39,6 +49,8 @@ public class moveLeafsheep : MonoBehaviour {
 		Vector3 movement = transform.forward * movementInputValue * moveSpeed * Time.deltaTime;
 		
 		rb.MovePosition (rb.position + movement);
+
+
 	}
 	
 	
