@@ -16,8 +16,12 @@ public class algaeLifespan3 : MonoBehaviour {
 	RectTransform progressBarWidth;
 	RectTransform progressBarMaxWidth;
 
+	//static GameObject nextLevel;
+	//static bool youreDone = false;
+
 	float lifeTimer;
 	float eatingTimer = 0f;
+
 
 	string algaeStatus = "none";
 
@@ -32,7 +36,10 @@ public class algaeLifespan3 : MonoBehaviour {
 		progressBarWidth = progressBar.GetComponent<RectTransform>();
 		progressBarMaxWidth = progressBarBackground.GetComponent<RectTransform> ();
 
-		lifeTimer = Random.Range(7.0f, 12.0f);
+		//nextLevel = GameObject.Find ("nextLevel");
+		//nextLevel.SetActive (false);
+
+		lifeTimer = Random.Range(9.0f, 30.0f);
 
 		babyAlgaePrefab = Resources.Load("prefabs/babyAlgaeBlendPre1");
 		mediAlgaePrefab = Resources.Load("prefabs/mediAlgaeBlendPre4");
@@ -50,25 +57,25 @@ public class algaeLifespan3 : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (lifeTimer < 12.01 && algaeStatus != "dead") {
+		if (lifeTimer < 30.01 && algaeStatus != "dead") {
 			lifeTimer -= Time.deltaTime;
 			//Debug.Log (lifeTimer);
 		}
 
-		if (lifeTimer > 12) {
+		if (lifeTimer > 30) {
 			Destroy (algaeGothamDeserves);
 			Debug.Log ("It died bc you are bad news");
-		} else if (lifeTimer < 12 && lifeTimer > 8 && algaeStatus != "baby") {
+		} else if (lifeTimer < 30 && lifeTimer > 20 && algaeStatus != "baby") {
 			Destroy (algaeGothamDeserves);
 			algaeGothamDeserves = (GameObject)Instantiate(babyAlgaePrefab, transform.position, Quaternion.LookRotation(transform.position));
 			algaeGothamDeserves.transform.parent = gameObject.transform;
 			algaeStatus = "baby";
-		} else if (lifeTimer < 8 && lifeTimer > 4 && algaeStatus != "medi") {
+		} else if (lifeTimer < 20 && lifeTimer > 10 && algaeStatus != "medi") {
 			Destroy (algaeGothamDeserves);
 			algaeGothamDeserves = (GameObject)Instantiate(mediAlgaePrefab, transform.position, Quaternion.LookRotation(transform.position));
 			algaeGothamDeserves.transform.parent = gameObject.transform;
 			algaeStatus = "medi";
-		} else if (lifeTimer < 4 && lifeTimer > 0 && algaeStatus != "flower") {
+		} else if (lifeTimer < 10 && lifeTimer > 0 && algaeStatus != "flower") {
 			Destroy (algaeGothamDeserves);
 			algaeGothamDeserves = (GameObject)Instantiate(flowerAlgaePrefab, transform.position, Quaternion.LookRotation(transform.position));
 			algaeGothamDeserves.transform.parent = gameObject.transform;
@@ -103,6 +110,22 @@ public class algaeLifespan3 : MonoBehaviour {
 			*/
 		}
 
+		if (progressBarWidth.localScale.x >= progressBarMaxWidth.localScale.x) {
+			//youreDone = true;
+			
+			//get leaf sheep's mover and make it stop
+			//turn on a button on the canvas that says next level
+			//next level button loads next level
+			
+			//progressBar.SetActive (false);
+			//progressBarBackground.SetActive (false);
+			//nextLevel.SetActive (true);
+			
+			Debug.Log ("Winner!!!");
+		}
+
+		//if all the algaes are dead, turn on tryAgain
+
 	}
 
 	void OnTriggerStay(Collider other) {
@@ -110,7 +133,7 @@ public class algaeLifespan3 : MonoBehaviour {
 		if (other.gameObject.name == "LeafSheep") {
 			Debug.Log ("Still colliding with leaf sheep");
 
-			if (algaeStatus == "flower") {
+			if (algaeStatus == "flower" /*&& youreDone == false*/) {
 				EatFloweringAlgae();
 			}
 
@@ -130,6 +153,7 @@ public class algaeLifespan3 : MonoBehaviour {
 			progressBarWidth.localScale += new Vector3 (0.01f, 0f, 0f);
 			Debug.Log ("Eating Flowers!");
 		}
+
 
 	}
 

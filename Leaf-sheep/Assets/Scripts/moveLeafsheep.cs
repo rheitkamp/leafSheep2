@@ -33,14 +33,6 @@ public class moveLeafsheep : MonoBehaviour {
 		Move ();
 		Turn ();
 
-		float youCantJump = gameObject.transform.position.y;
-		
-		if (youCantJump > .55f) {
-			youCantJump = .5f;
-		}
-		
-		Debug.Log (youCantJump);
-
 	}
 
 	private void Move()
