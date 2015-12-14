@@ -2,6 +2,18 @@
 using System.Collections;
 
 public class algaeLifespan3 : MonoBehaviour {
+	// Declare public variables
+	float lifeTimer = 0f;
+
+	//Declare private variables
+	bool youreDone = false;
+
+	float eatingTimer = 0f;
+	float lifeTimerMax = 30f;
+
+	string algaeStatus = "none";
+	
+	Vector3 currentPos;
 
 	Object babyAlgaePrefab;
 	Object mediAlgaePrefab;
@@ -10,58 +22,54 @@ public class algaeLifespan3 : MonoBehaviour {
 
 	GameObject algaeGothamDeserves;
 	GameObject DEADalgaeGothamDeserves;
-
 	GameObject progressBar;
 	GameObject progressBarBackground;
-	RectTransform progressBarWidth;
-	RectTransform progressBarMaxWidth;
+	GameObject progressMeter;
+	GameObject nextLevelButton;
 
-	//static GameObject nextLevel;
-	//static bool youreDone = false;
+	RectTransform progressBarRect;
+	RectTransform progressBarMaxRect;
 
-	float lifeTimer;
-	float eatingTimer = 0f;
-
-
-	string algaeStatus = "none";
-
-	//Vector3 planetCenter = new Vector3(0,0,0);
-
-	Vector3 currentPos;
-	
-	// Use this for initialization
 	void Start () {
-		progressBar = GameObject.Find ("ProgressBar");
-		progressBarBackground = GameObject.Find ("ProgressBarBackground");
-		progressBarWidth = progressBar.GetComponent<RectTransform>();
-		progressBarMaxWidth = progressBarBackground.GetComponent<RectTransform> ();
 
-		//nextLevel = GameObject.Find ("nextLevel");
-		//nextLevel.SetActive (false);
+		// Set the starting value of the timer to a random number
+		lifeTimer = Random.Range(9.0f, 30f);	
 
-		lifeTimer = Random.Range(9.0f, 30.0f);
-
+		// Load objects from Resources directory
 		babyAlgaePrefab = Resources.Load("prefabs/babyAlgaeBlendPre1");
 		mediAlgaePrefab = Resources.Load("prefabs/mediAlgaeBlendPre4");
 		flowerAlgaePrefab = Resources.Load("prefabs/flowerAlgaeBlendPre");
 		deadAlgaePrefab = Resources.Load("prefabs/deadAlgaeBlendPre");
-	
+
+		// Get references to objects in scene
+		progressBar = GameObject.Find ("ProgressBar");
+		progressBarBackground = GameObject.Find ("ProgressBarBackground");
+		progressMeter = GameObject.Find ("ProgressMeter");
+		nextLevelButton = GameObject.Find ("nextLevel");
+		progressBarRect = progressBar.GetComponent<RectTransform>();
+		progressBarMaxRect = progressBarBackground.GetComponent<RectTransform> ();
+
+		// Instantiate a baby algae body for the algae
 		algaeGothamDeserves = (GameObject)Instantiate(babyAlgaePrefab, transform.position, Quaternion.LookRotation(transform.position));
 		algaeGothamDeserves.transform.parent = gameObject.transform;
 		algaeStatus = "baby";
 
-		//currentPos = gameObject.transform.position;
+		// Make the Next Level button invisible at the start of the scene
+		//nextLevelButton.SetActive (false);
+
+		//Debug.Log ("Next level should be invisible now");
 
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
 
-		if (lifeTimer < 30.01 && algaeStatus != "dead") {
+		// Decrement algae timer while the algae is alive
+		if (lifeTimer <= 30.1 && algaeStatus != "dead") {
 			lifeTimer -= Time.deltaTime;
-			//Debug.Log (lifeTimer);
+			Debug.Log (lifeTimer);
 		}
 
+		// Change the model of the algae depending on the algae age
 		if (lifeTimer > 30) {
 			Destroy (algaeGothamDeserves);
 			Debug.Log ("It died bc you are bad news");
@@ -88,55 +96,37 @@ public class algaeLifespan3 : MonoBehaviour {
 			Debug.Log ("It died bc you are neglectful");
 		}
 
-		if (algaeStatus == "dead") {
+		// When the progress bar gets to the maximum width
+		if (progressBarRect.localScale.x >= progressBarMaxRect.localScale.x && youreDone == false) {
+			youreDone = true;
 
-			/* tell it where to be...didn't work
-			DEADalgaeGothamDeserves.transform.position = currentPos;
-			*/
-			
-			/*
-			 * set translation to 0...didn't work
-			Vector3 noYouMayNot = new Vector3 (0,0,0);
-			DEADalgaeGothamDeserves.transform.Translate(noYouMayNot, Space.Self);
-			 */
-			
-			/*
-			 * set velocit to zero...didn't work
-			 * 
-			Rigidbody algaeRB;
-			algaeRB = DEADalgaeGothamDeserves.GetComponent<Rigidbody>();
-			algaeRB.velocity = new Vector3(0,0,0);
-			Debug.Log (algaeRB.velocity);
-			*/
+			// Turn the progress meter off and the next level button on
+			progressMeter.SetActive (false);
+
+			// Get leaf sheep's mover and make it stop
+			GameObject leafSheep = GameObject.Find ("LeafSheep");
+			leafSheep.GetComponent<moveLeafsheep>().enabled = false;
+
+			leafSheep.GetComponent<gameManager>();
+			//Debug.Log ("Winner!!!");
+
 		}
 
-		if (progressBarWidth.localScale.x >= progressBarMaxWidth.localScale.x) {
-			//youreDone = true;
-			
-			//get leaf sheep's mover and make it stop
-			//turn on a button on the canvas that says next level
-			//next level button loads next level
-			
-			//progressBar.SetActive (false);
-			//progressBarBackground.SetActive (false);
-			//nextLevel.SetActive (true);
-			
-			Debug.Log ("Winner!!!");
-		}
-
-		//if all the algaes are dead, turn on tryAgain
+		// if all the algaes are dead, turn on tryAgain
 
 	}
 
 	void OnTriggerStay(Collider other) {
 
 		if (other.gameObject.name == "LeafSheep") {
-			Debug.Log ("Still colliding with leaf sheep");
+			//Debug.Log ("Still colliding with leaf sheep");
 
+			// When colliding with the flower algae, eat it
 			if (algaeStatus == "flower" /*&& youreDone == false*/) {
 				EatFloweringAlgae();
 			}
 
+			// When colliding with other life stages, add to the life timer
 			if (algaeStatus != "dead") {
 				eatingTimer += Time.deltaTime;
 				if (eatingTimer > 1) {
@@ -144,13 +134,13 @@ public class algaeLifespan3 : MonoBehaviour {
 					eatingTimer = 0;
 				}
 			}
-
 		}
 	}
 
+	// Eat the flowering algae
 	void EatFloweringAlgae() {
-		if (progressBarWidth.localScale.x < progressBarMaxWidth.localScale.x) {
-			progressBarWidth.localScale += new Vector3 (0.01f, 0f, 0f);
+		if (progressBarRect.localScale.x < progressBarMaxRect.localScale.x) {
+			progressBarRect.localScale += new Vector3 (0.5f, 0f, 0f);
 			Debug.Log ("Eating Flowers!");
 		}
 

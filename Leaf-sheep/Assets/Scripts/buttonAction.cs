@@ -2,15 +2,13 @@
 using System.Collections;
 
 public class buttonAction : MonoBehaviour {
-
-		public void NextLevelButton(int index)
-		{
-			Application.LoadLevel(index);
-		}
 		
-		public void NextLevelButton(string levelName)
-		{
-			Application.LoadLevel(levelName);
-		}
+	public void StartGame(string levelName)
+	{
+		Application.LoadLevel(levelName);
+	}
 
+	public void RestartLevelButton() {
+	//reload the same level
+	}
 }
