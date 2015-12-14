@@ -7,11 +7,13 @@ public class gameManager : MonoBehaviour {
 
 	// Declare public variables
 	public int currentLevel;
-
+	public GameObject nextLevelButton;
+	public GameObject winnerButton;
+	public GameObject tryAgainButton;
+	
 	// Declare private variables
 	Object alga;
 
-	GameObject nextLevelButton;
 	GameObject progressMeter;
 	GameObject progressBar;
 
@@ -22,6 +24,8 @@ public class gameManager : MonoBehaviour {
 		nextLevelButton = GameObject.Find ("nextLevel");
 		progressMeter = GameObject.Find ("ProgressMeter");
 		progressBar = GameObject.Find ("ProgressBar");
+		winnerButton = GameObject.Find ("winner");
+		tryAgainButton = GameObject.Find ("tryAgain");
 
 		progressBarRect = progressBar.GetComponent<RectTransform>();
 
@@ -30,6 +34,8 @@ public class gameManager : MonoBehaviour {
 		LevelLoader ();
 
 		nextLevelButton.SetActive (false);
+		winnerButton.SetActive (false);
+		tryAgainButton.SetActive (false);
 	}
 
 	void Update () {
@@ -39,13 +45,19 @@ public class gameManager : MonoBehaviour {
 	// A button function that sets up the next level when the player completes the current level
 	public void ButtonGoToNextLevel() {
 		// Go to the next level
+
 		if (currentLevel < 3) {
 			currentLevel++;
 			LevelLoader ();
+
 		}
 
 		// Make the next level button disappear
 		nextLevelButton.SetActive (false);
+	}
+
+	public void ButtonGoToStart() {
+		Application.LoadLevel ("Start");
 	}
 
 	public void PrepLevel() {
@@ -60,12 +72,16 @@ public class gameManager : MonoBehaviour {
 		// Make the leafsheep move again
 		GetComponent<moveLeafsheep> ().enabled = true;
 
+		algaeLifespan3.howManyAlgaes = 0;
+
+
 	}
 
 	// A button function that lets the player replay the level
 	public void ButtonReplay() {
 		//Debug.Log ("current level: " + currentLevel);
 		LevelLoader ();
+		tryAgainButton.SetActive (false);
 	}
 
 	// A switch to set up the right level
@@ -92,7 +108,7 @@ public class gameManager : MonoBehaviour {
 				InstantiateAlga();				
 				InstantiateAlga();
 				Debug.Log ("You're on level 3");
-				break;
+				break;	
 			default:
 				Debug.Log ("On the start menu.");
 				break;	
@@ -130,5 +146,7 @@ public class gameManager : MonoBehaviour {
 			LevelLoader ();
 		}
 	}
+
+
 }
 

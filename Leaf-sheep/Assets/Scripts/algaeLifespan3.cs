@@ -6,8 +6,6 @@ public class algaeLifespan3 : MonoBehaviour {
 	float lifeTimer = 0f;
 
 	//Declare private variables
-	bool youreDone = false;
-
 	float eatingTimer = 0f;
 	float lifeTimerMax = 30f;
 
@@ -30,8 +28,11 @@ public class algaeLifespan3 : MonoBehaviour {
 	RectTransform progressBarRect;
 	RectTransform progressBarMaxRect;
 
-	void Start () {
+	public static int howManyAlgaes;
 
+	void Start () {
+		howManyAlgaes += 1;
+		Debug.Log ("This many algaes: " + howManyAlgaes);
 		// Set the starting value of the timer to a random number
 		lifeTimer = Random.Range(9.0f, 30f);	
 
@@ -66,13 +67,14 @@ public class algaeLifespan3 : MonoBehaviour {
 		// Decrement algae timer while the algae is alive
 		if (lifeTimer <= 30.1 && algaeStatus != "dead") {
 			lifeTimer -= Time.deltaTime;
-			Debug.Log (lifeTimer);
+			//Debug.Log (lifeTimer);
 		}
 
 		// Change the model of the algae depending on the algae age
 		if (lifeTimer > 30) {
 			Destroy (algaeGothamDeserves);
 			Debug.Log ("It died bc you are bad news");
+			howManyAlgaes -= 1;
 		} else if (lifeTimer < 30 && lifeTimer > 20 && algaeStatus != "baby") {
 			Destroy (algaeGothamDeserves);
 			algaeGothamDeserves = (GameObject)Instantiate(babyAlgaePrefab, transform.position, Quaternion.LookRotation(transform.position));
@@ -94,22 +96,36 @@ public class algaeLifespan3 : MonoBehaviour {
 			DEADalgaeGothamDeserves.transform.parent = gameObject.transform;
 			algaeStatus = "dead";
 			Debug.Log ("It died bc you are neglectful");
+			howManyAlgaes -= 1;
 		}
 
 		// When the progress bar gets to the maximum width
-		if (progressBarRect.localScale.x >= progressBarMaxRect.localScale.x && youreDone == false) {
-			youreDone = true;
+		GameObject leafSheep = GameObject.Find ("LeafSheep");
+		int gmCurrentLevel = leafSheep.GetComponent<gameManager> ().currentLevel;
 
+		if (progressBarRect.localScale.x >= progressBarMaxRect.localScale.x && gmCurrentLevel < 3) {
 			// Turn the progress meter off and the next level button on
 			progressMeter.SetActive (false);
+			//nextLevelButton.SetActive (true);
 
 			// Get leaf sheep's mover and make it stop
-			GameObject leafSheep = GameObject.Find ("LeafSheep");
 			leafSheep.GetComponent<moveLeafsheep>().enabled = false;
-
-			leafSheep.GetComponent<gameManager>();
+			leafSheep.GetComponent<gameManager>().nextLevelButton.SetActive (true);
+		} else if (progressBarRect.localScale.x >= progressBarMaxRect.localScale.x && gmCurrentLevel == 3) {
+			// Turn the progress meter off and the next level button on
+			progressMeter.SetActive (false);
+			//nextLevelButton.SetActive (true);
+			
+			// Get leaf sheep's mover and make it stop
+			leafSheep.GetComponent<moveLeafsheep>().enabled = false;
+			leafSheep.GetComponent<gameManager>().winnerButton.SetActive (true);
+			
 			//Debug.Log ("Winner!!!");
+		}
 
+		if (howManyAlgaes == 0) {
+			progressMeter.SetActive (false);
+			leafSheep.GetComponent<gameManager>().tryAgainButton.SetActive (true);
 		}
 
 		// if all the algaes are dead, turn on tryAgain
@@ -122,7 +138,7 @@ public class algaeLifespan3 : MonoBehaviour {
 			//Debug.Log ("Still colliding with leaf sheep");
 
 			// When colliding with the flower algae, eat it
-			if (algaeStatus == "flower" /*&& youreDone == false*/) {
+			if (algaeStatus == "flower") {
 				EatFloweringAlgae();
 			}
 
@@ -143,8 +159,6 @@ public class algaeLifespan3 : MonoBehaviour {
 			progressBarRect.localScale += new Vector3 (0.5f, 0f, 0f);
 			Debug.Log ("Eating Flowers!");
 		}
-
-
 	}
 
 }
